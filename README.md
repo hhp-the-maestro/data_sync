@@ -19,7 +19,7 @@ db_data.json - has mock data for the database
 
 ## Schemas
 
-### Sorce Data
+### Source Data
 
 ![image](https://user-images.githubusercontent.com/68218986/199896057-0e5559ac-fa3d-4d3a-8380-9905965c95be.png)
 
