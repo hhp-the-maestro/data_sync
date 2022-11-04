@@ -55,8 +55,10 @@ class DbConf:
     
     def drop_all_tables(self):
         for table in self.data["TABLES"]:
-            self.drop_table(table)
-
+            try:
+                self.drop_table(table)
+            except:
+                print_out("red", f"Table({table} does not exist")
     @staticmethod
     def drop_table(table):
         if inspect(db).has_table(table):

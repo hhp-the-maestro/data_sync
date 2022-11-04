@@ -26,7 +26,7 @@ def map_data_sources(kwargs1, kwargs2, identifier):
         dest = fetch_data(**kwargs2)
 
         print_out("purple", "Destination\n")
-        pprint(src, indent=5, depth=3)
+        pprint(dest, indent=5, depth=3)
         if dest:
             # if dest data found with filters generates diff
             cmp = Compare_Data()

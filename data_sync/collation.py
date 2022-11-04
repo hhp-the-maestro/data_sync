@@ -60,7 +60,7 @@ class Compare_Data:
                 dest_key = self.map.get(parent_key)
                 if "." in dest_key:
                     dest_key = dest_key.split(".")[-1]
-                print(parent_key, dest_key)
+                
                 if isinstance(obj[key], list) and isinstance(dest[dest_key], list):
                     self.if_src_dest_list(obj[key], dest[dest_key], parent=parent_key+'.')
 
