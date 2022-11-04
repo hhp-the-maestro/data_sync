@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  python-cli:
+    build: .
+    command: celery -A config worker --loglevel=INFO
+    image: app:data_sync
+    container_name: data_sync_container
+    depends_on:
+      - rabbit
+    environment:
+      CELERY_BROKER_URL: 'amqp://rabbitmq:rabbitmq@rabbitmq'
+    
+  rabbit:
+    hostname: "rabbitmq"
+    image: "rabbitmq:3-management"
+    environment:
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+    ports:
+      - "5672:5672"
+      - "15672:15672"

@@ -1,0 +1,84 @@
+
+{
+    "TABLES": {
+        "contact": [
+            {"name": "id", "type": "int", "primary_key": true},
+            {"name": "name", "type": "str"},
+            {"name": "title", "type": "str", "size": 4},
+            {"name": "city", "type": "str", "size": 50},
+            {"name": "state", "type": "str", "size": 50},
+            {"name": "country", "type": "str", "size": 50}, 
+            {"name": "company_id", "type": "foreign", "key": "company.id"}
+        ],
+
+        "phones": [
+            {"name": "id", "type": "int", "primary_key": true},
+            {"name": "number", "type": "str", "size": 16},
+            {"name": "type", "type": "str", "size": 20},
+            {"name": "contact_id", "type": "foreign", "key": "contact.id"}
+        ], 
+
+        "emails": [
+            {"name": "id", "type": "int", "primary_key": true}, 
+            {"name": "mail_id", "type": "str", "size": 50},
+            {"name": "type", "type": "str", "size": 20},
+            {"name": "is_verified", "type": "bool", "default": false},
+            {"name": "contact_id", "type": "foreign", "key": "contact.id"}
+        ], 
+
+        "company": [
+            {"name": "id", "type": "int", "primary_key": true}, 
+            {"name": "name", "type": "str"},
+            {"name": "size", "type": "int"}, 
+            {"name": "revenue", "type": "bigint"},
+            {"name": "city", "type": "str"},
+            {"name": "state", "type": "str"}, 
+            {"name": "country", "type": "str"}
+        ], 
+
+
+
+
+        
+        "prospect": [
+            {"name": "id", "type": "int", "primary_key": true},
+            {"name": "display_name", "type": "str"},
+            {"name": "prefix", "type": "str", "size": 4}, 
+            {"name": "location_id", "type": "foreign", "key": "location.id"},
+            {"name": "company_detail_id", "type": "foreign", "key": "company_detail.id"}
+        ], 
+
+        "location": [
+            {"name": "id", "type": "int", "primary_key": true},
+            {"name": "city_name", "type": "str", "size": 50},
+            {"name": "state_name", "type": "str", "size": 50},
+            {"name": "country_name", "type": "str", "size": 50}
+        ], 
+
+        "phone_numbers": [
+            {"name": "id", "type": "int", "primary_key": true},
+            {"name": "values", "type": "str", "size": 16},
+            {"name": "type", "type": "str", "size": 20},
+            {"name": "prospect_id", "type": "foreign", "key": "prospect.id"}
+        ], 
+
+        "email_address": [
+            {"name": "id", "type": "int", "primary_key": true}, 
+            {"name": "email", "type": "str", "size": 50},
+            {"name": "type", "type": "str", "size": 20},
+            {"name": "is_verified", "type": "bool", "default": false},
+            {"name": "prospect_id", "type": "foreign", "key": "prospect.id"}
+        ], 
+
+        "company_detail": [
+            {"name": "id", "type": "int", "primary_key": true}, 
+            {"name": "company_name", "type": "str"},
+            {"name": "company_size", "type": "int"}, 
+            {"name": "annual_revenue", "type": "bigint"},
+            {"name": "city_name", "type": "str"},
+            {"name": "state_name", "type": "str"}, 
+            {"name": "country_name", "type": "str"}
+        ]
+
+    }
+}
